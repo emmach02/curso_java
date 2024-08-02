@@ -26,11 +26,14 @@ public class ClienteService {
     }
 
     public Cliente getClientesByName(String nombre) throws NotFoundException{
+        // el optional es por si cliente trae o no un objeto Cliente, porque podría traer null o vacío
         Optional<Cliente> cliente = listaClientes.stream().filter( x -> x.getNombre().equals(nombre)).findFirst();
 
+        // verificación que sea empty, manejo de error - Si es empty lanza NotFound y si no continúa
         if (cliente.isEmpty()){
             throw new NotFoundException("No se encontró cliente");
         } else {
+            // siempre devolver el objeto
             return cliente.get();
         }
     }
