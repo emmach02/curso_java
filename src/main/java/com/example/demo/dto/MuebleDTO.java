@@ -1,13 +1,11 @@
 package com.example.demo.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 
 public class MuebleDTO {
@@ -17,4 +15,6 @@ public class MuebleDTO {
     private String nombre;
 
     private Long cantDisponible;
+
+    private Long fabricanteId;
 }

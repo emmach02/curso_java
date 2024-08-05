@@ -1,10 +1,7 @@
 package com.example.demo.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "mueble")
@@ -12,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 
 public class Mueble {
 
@@ -25,5 +23,9 @@ public class Mueble {
 
     @Column(name ="cantdisponible")
     private Long cantDisponible;
+
+    @ManyToOne
+    @JoinColumn(name = "fabricante")
+    private Fabricante fabricante;
 
 }
