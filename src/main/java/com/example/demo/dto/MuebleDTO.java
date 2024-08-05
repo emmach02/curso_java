@@ -1,16 +1,20 @@
-package com.example.demo.domain;
+package com.example.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor
-@Builder
 @Getter
 @Setter
+@AllArgsConstructor
+@Builder
 
-public class Cliente {
-    private Long id;
+public class MuebleDTO {
+
+    private Long muebleId;
+
     private String nombre;
+
+    private Long cantDisponible;
 }
