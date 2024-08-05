@@ -4,6 +4,7 @@ import com.example.demo.domain.Fabricante;
 import com.example.demo.domain.Mueble;
 import com.example.demo.dto.MuebleDTO;
 import com.example.demo.exceptions.BadRequestException;
+import com.example.demo.exceptions.ErrorMessages;
 import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.mapper.MuebleMapper;
 import com.example.demo.repository.FabricanteRepository;
@@ -49,13 +50,13 @@ public class MuebleService {
     // Subir a la base de datos un mueble nuevo
     public MuebleDTO create(MuebleDTO body) throws NotFoundException, BadRequestException{
         if (body.getCantDisponible() < 0) {
-            throw new BadRequestException("El stock no puede ser menor a 0");
+            throw new BadRequestException(ErrorMessages.STOCK_NO_NEGATIVO);
         }
         if (body.getNombre().isEmpty()) {
-            throw new BadRequestException("El nombre del mueble no puede estar vacío");
+            throw new BadRequestException(ErrorMessages.NOMBRE_VACIO);
         }
         if (body.getFabricanteId() == null) {
-            throw new BadRequestException("Se debe ingresar fabricante del mueble");
+            throw new BadRequestException(ErrorMessages.FABRICANTE_ID_NULO);
         }
 
 
